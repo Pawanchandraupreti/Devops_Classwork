@@ -1,0 +1,26 @@
+$ docker --version 
+Docker version 18.09.6, build 481bc77
+
+$ docker pull httpd
+
+docker run httpd echo “Hello, World!”
+
+docker run -e MY_VAR=value httpd env
+
+This command sets an environment variable ‘MY_VAR’ to the value “value” and runs a new container from the ‘httpd’ image. 
+
+   The ‘env’ command is executed to display the list of environment variables in the container.
+
+docker run -e APP_ENV=production -e APP_VERSION=1.0 nginx
+
+
+Same for MySQL Container
+
+docker run -d \
+  -e MYSQL_ROOT_PASSWORD=root123 \
+  -e MYSQL_DATABASE=college \
+  -e MYSQL_USER=admin \
+  -e MYSQL_PASSWORD=admin123 \
+  mysql:8
+
+Without these variables, MySQL container will fail to start
